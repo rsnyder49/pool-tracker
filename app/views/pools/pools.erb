@@ -10,8 +10,8 @@
     <h3>All Pools:</h3>
     <% @pools.all.each do |pool| %>
     <ul>
-	  <% @cleaner = User.find_by_id(pool.user_id) %>
-	  <h4><a href="/cleaners/<%= @cleaner.slug %>"><%= @cleaner.username %></a>:
+	  <% @user = User.find_by_id(pool.user_id) %>
+	  <h4><a href="/cleaners/<%= @user.slug %>"><%= @user.username %></a>:
     <%= tweet.content %></h4></ul>
 	  <ul><form action="/pools/<%= pool.id %>" method="GET">
 	 		<input type="submit" value="View Pool">
