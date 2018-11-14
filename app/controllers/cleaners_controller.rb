@@ -20,7 +20,7 @@ class CleanerController < ApplicationController
     if Helper.logged_in?(session)
       redirect '/pools'
     else 
-      erb ':cleaners/login'
+      erb :'cleaners/login'
     end 
   end
   
