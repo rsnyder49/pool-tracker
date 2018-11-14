@@ -1,4 +1,4 @@
-class CleanerController < ApplicationController 
+class UsersController < ApplicationController 
   
   get '/signup' do 
     if Helper.logged_in?(session)
@@ -20,7 +20,7 @@ class CleanerController < ApplicationController
     if Helper.logged_in?(session)
       redirect '/pools'
     else 
-      erb :'cleaners/login'
+      erb :'users/login'
     end 
   end
   
@@ -32,7 +32,12 @@ class CleanerController < ApplicationController
     else 
       redirect '/login' 
     end 
-  end 
+  end
+  
+  get '/users/:slug' do
+    @user = User.find_by_slug(params[:slug])
+    erb :'/users/show'
+  end
   
   get '/logout' do 
     if Helper.logged_in?(session)

@@ -1,3 +1,3 @@
 class Pool < ActiveRecord::Base
-  belongs_to :cleaners
+  belongs_to :users
 end 

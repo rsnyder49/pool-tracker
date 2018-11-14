@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <h1>Welcome, <%= Helper.current_user(session).username %></h1>
+    <form action="/pools/new" method="GET">
+		  <input type="submit" value="New Pool">
+	  </form>
+    <form method="GET" action="/users/<%= Helper.current_user(session).slug %>">
+		  <input type="submit" value="Your Pools">
+	  </form>
+    <h3>All Pools:</h3>
+    <% @pools.all.each do |pool| %>
+    <ul>
+	  <% @cleaner = User.find_by_id(pool.user_id) %>
+	  <h4><a href="/cleaners/<%= @cleaner.slug %>"><%= @cleaner.username %></a>:
+    <%= tweet.content %></h4></ul>
+	  <ul><form action="/pools/<%= pool.id %>" method="GET">
+	 		<input type="submit" value="View Pool">
+	 	</form></ul>
+    <% end %>
+  </body>
+</html>

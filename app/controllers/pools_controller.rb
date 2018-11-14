@@ -1,4 +1,4 @@
-class PoolController < ApplicationController  
+class PoolsController < ApplicationController  
   
   get '/pools' do 
     if Helper.logged_in?(session)
@@ -18,8 +18,8 @@ class PoolController < ApplicationController
   end 
   
   get '/tweets/:id' do
-    if Helpers.is_logged_in?(session)
-      @tweet = Tweet.find_by_id(params[:id])
+    if Helper.logged_in?(session)
+      @pool = Pool.find_by_id(params[:id])
     else
       redirect to '/login'
     end
@@ -31,7 +31,7 @@ class PoolController < ApplicationController
     if (params.has_value?(""))
       redirect to '/pools/new'
     elsif !params.empty?
-      @pool = Tweet.create(:content => params[:content])
+      @pool = Pool.create(:content => params[:content])
       @user = User.find_by(params[:id])
       @pool.user_id = @user.id
       @pool.save
@@ -77,7 +77,6 @@ class PoolController < ApplicationController
     end
     redirect to "/pools/#{@pool.id}"
   end
-  
   
 end 
 
