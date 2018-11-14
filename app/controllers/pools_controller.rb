@@ -26,8 +26,8 @@ class PoolController < ApplicationController
     erb :'pools/show_pool'
   end
   
-  post '/tweets' do
-    @user = Helpers.current_user(session)
+  post '/pools' do
+    @user = Helper.current_user(session)
     if (params.has_value?(""))
       redirect to '/pools/new'
     elsif !params.empty?
@@ -37,7 +37,7 @@ class PoolController < ApplicationController
       @pool.save
       @user.pools << @pool
     end
-    redirect to "/tweets/#{@pool.id}"
+    redirect to "/pools/#{@pool.id}"
   end
   
   delete '/pools/:id/delete' do

@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <h2><%= @cleaner.username %>'s Pools!</h2>
+    <% @cleaner.pools.each do |pool| %>
+    <ul><%= pool.content %><br></ul>
+    <ul><form action="/pools/<%= pool.id %>/edit" method="GET">
+      <input type="submit" value="Edit Pool" >
+    </form>
+    <form action="/pools/<%= pool.id %>/delete" method="POST">
+    	<input id="hidden" type="hidden" name="_method" value="DELETE"/>
+    	<input type="submit" value="Delete Pool" ></ul>
+    <% end %>
+    <br>
+    <form action="/pools" method="GET">
+    	<input type="submit" value="All Pools" />
+    </form>
+  </body>
+</html>
