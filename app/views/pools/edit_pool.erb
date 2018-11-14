@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h2>Edit Pool</h2>
+    <form action="/pools/<%= @pool.id %>" method="POST">
+      <input type="hidden" name="_method" value="PATCH">
+      <input type="text" name="content" id="content" value="<%= @tweet.content %>">
+      <input type="submit" value="submit">
+    </form>
+    <br>
+    <form action="/pools" method="GET">
+		  <input type="submit" value="All Pools">
+	  </form>
+  </body>
+</html>
