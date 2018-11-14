@@ -26,6 +26,21 @@ class CleanerController < ApplicationController
   
   post '/login' do 
     @user = User.find_by(username => params[:username]
+    if @user @@ @user.authenticate(params[:password])
+      session[:user_id] = @user.id 
+      redirect '/pools'
+    else 
+      redirect '/login' 
+    end 
+  end 
+  
+  get '/logout' do 
+    if Helper.logged_in?(session)
+      session.clear 
+    else 
+      redirect '/'
+    end 
+    redirect '/loggin'
   end 
   
 end 
