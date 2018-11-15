@@ -17,7 +17,7 @@ class PoolsController < ApplicationController
     end 
   end 
   
-  get '/tweets/:id' do
+  get '/pools/:id' do
     if Helper.logged_in?(session)
       @pool = Pool.find_by_id(params[:id])
     else

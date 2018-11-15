@@ -1,14 +1,14 @@
 <html>
   <body>
     <h2>Pool Details</h2>
-    <%= @pool.content %>
+    <%= @pool.address %>
     <form action="/pools/<%= @pool.id %>/edit" method="GET">
 		  <input type="submit" value="Edit Pool" />
 	  </form>
 	  <br>
-    <form action="/tweets/<%= @tweet.id %>/delete" method="POST">
+    <form action="/pools/<%= @pool.id %>/delete" method="POST">
 		  <input id="hidden" type="hidden" name="_method" value="DELETE"/>
-		  <input type="submit" value="Delete Tweet" />
+		  <input type="submit" value="Delete Pool" />
 	  </form>	
     <br>
     <form action="/pools" method="GET">

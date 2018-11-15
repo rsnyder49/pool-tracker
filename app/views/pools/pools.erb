@@ -11,7 +11,7 @@
     <% @pools.all.each do |pool| %>
     <ul>
 	  <% @user = User.find_by_id(pool.user_id) %>
-	  <h4><a href="/cleaners/<%= @user.slug %>"><%= @user.username %></a>:
+	  <h4><a href="/users/<%= @user.slug %>"><%= @user.username %></a>:
     <%= pool.address %></h4></ul>
 	  <ul><form action="/pools/<%= pool.id %>" method="GET">
 	 		<input type="submit" value="View Pool">
