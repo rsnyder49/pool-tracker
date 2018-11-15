@@ -12,7 +12,7 @@
     <ul>
 	  <% @user = User.find_by_id(pool.user_id) %>
 	  <h4><a href="/cleaners/<%= @user.slug %>"><%= @user.username %></a>:
-    <%= tweet.content %></h4></ul>
+    <%= pool.address %></h4></ul>
 	  <ul><form action="/pools/<%= pool.id %>" method="GET">
 	 		<input type="submit" value="View Pool">
 	 	</form></ul>

@@ -1,7 +1,7 @@
 <html>
   <body>
-    <h2><%= @cleaner.username %>'s Pools!</h2>
-    <% @cleaner.pools.each do |pool| %>
+    <h2><%= @user.username %>'s Pools!</h2>
+    <% @user.pools.each do |pool| %>
     <ul><%= pool.content %><br></ul>
     <ul><form action="/pools/<%= pool.id %>/edit" method="GET">
       <input type="submit" value="Edit Pool" >

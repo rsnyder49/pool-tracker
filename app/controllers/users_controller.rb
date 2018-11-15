@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if Helper.logged_in?(session)
       redirect '/pools'
     end 
-    erb :create_user
+    erb :'users/create_user'
   end 
   
   post '/signup' do 
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @user[:user_id] = @user.id
       redirect '/pools'
     else 
-      redirect 'signup'
+      redirect '/signup'
     end
   end 
   
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
   
   post '/login' do 
-    @user = User.find_by(username => params[:username]
+    @user = User.find_by(username => params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id 
       redirect '/pools'
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     else 
       redirect '/'
     end 
-    redirect '/loggin'
+    redirect '/login'
   end 
   
 end 
