@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Golf Club Organizer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <nav>
+      <% if Helper.logged_in?(session) %>
+
+        <a href="/pools/new"> Create Club </a>
+        <a href="/logout"> Log Out </a>
+        <p>Welcome, <%=current_user.username %></p>
+
+      <% else %>
+        <a href="/signup">Sign Up</a>
+        <a href="/login"> Sign In </a>
+      <%end%>
+
+
+      <%= yield %> 
+
+  </body>
+</html>
