@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   
   post '/signup' do 
     if !params.has_value?("") && params[:email].include?("@")
-      @user = User.create(name: params[:username], email: params[:email], password: params[:password])
-      @user[:user_id] = @user.id
+      @user = User.create(username: params[:username], email: params[:email], password: params[:password])
+      session[:user_id] = @user.id
       redirect '/pools'
     else 
       redirect '/signup'
