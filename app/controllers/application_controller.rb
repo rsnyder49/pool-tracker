@@ -13,4 +13,8 @@ class ApplicationController < Sinatra::Base
     erb :index
   end	
   
+  post '/pools/new' do
+    "Hello World"
+  end
+  
 end

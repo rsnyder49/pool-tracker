@@ -18,10 +18,10 @@ class PoolsController < ApplicationController
   end 
   
   get '/pools/:id' do
-    if Helper.logged_in?(session)
+    if Helper.logged_in?(session) && !!Pool.find_by_id(params[:id])
       @pool = Pool.find_by_id(params[:id])
     else
-      redirect to '/login'
+      redirect '/login'
     end
     erb :'pools/show_pool'
   end
@@ -31,13 +31,14 @@ class PoolsController < ApplicationController
     if (params.has_value?(""))
       redirect to '/pools/new'
     elsif !params.empty?
-      @pool = Pool.create(:content => params[:content])
+      # @pool = Pool.create(:content => params[:content])
+      @pool = Pool.create(params)
       @user = User.find_by(params[:id])
       @pool.user_id = @user.id
       @pool.save
       @user.pools << @pool
     end
-    redirect to "/pools/#{@pool.id}"
+    redirect "/pools/#{@pool.id}"
   end
   
   delete '/pools/:id/delete' do
