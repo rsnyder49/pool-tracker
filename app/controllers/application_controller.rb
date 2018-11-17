@@ -13,8 +13,15 @@ class ApplicationController < Sinatra::Base
     erb :index
   end	
   
-  post '/pools/new' do
-    "Hello World"
+  # get '/pools/new' do
+  #   "Hello World"
+  # end
+    get 'pools/new' do 
+    if Helper.logged_in?(session)
+      erb :'pools/new'
+    else 
+      redirect '/login'
+    end 
   end
   
 end

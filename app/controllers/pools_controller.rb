@@ -9,13 +9,13 @@ class PoolsController < ApplicationController
     end 
   end
   
-  get 'pools/new' do 
-    if Helper.logged_in?(session)
-      erb :'pools/new'
-    else 
-      redirect '/login'
-    end 
-  end 
+  # get 'pools/new' do 
+  #   if Helper.logged_in?(session)
+  #     erb :'pools/new'
+  #   else 
+  #     redirect '/login'
+  #   end 
+  # end 
   
   get '/pools/:id' do
     if Helper.logged_in?(session) && !!Pool.find_by_id(params[:id])
