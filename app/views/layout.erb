@@ -3,18 +3,19 @@
   <head>
     <title>Pool Tracker</title>
   </head>
+  <style>A {text-decoration: none;}</style>
   <body>
     <nav>
       <% if Helper.logged_in?(session) %>
 
         <a href="/pools/new"> Create Pool </a>
         <a href="/logout"> Log Out </a>
-        <p>Welcome, <%=Helper.current_user(session).username %></p>
+        <p>Hello, <%= Helper.current_user(session).username %></p>
 
       <% else %>
         <a href="/signup">Sign Up</a>
         <a href="/login"> Sign In </a>
-      <%end%>
+      <% end %>
 
 
       <%= yield %> 
