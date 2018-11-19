@@ -3,16 +3,16 @@
     <h2>Pool Details</h2>
     <%= @pool.address1 %> <%= @pool.address2 %><br><%= @pool.city %><br><%= @pool.state %><br><%= @pool.zip %>
     <form action="/pools/<%= @pool.id %>/edit" method="GET">
-		  <input type="submit" value="Edit Pool" />
+		  <input type="submit" value="Edit Pool">
 	  </form>
 	  <br>
     <form action="/pools/<%= @pool.id %>/delete" method="POST">
-		  <input id="hidden" type="hidden" name="_method" value="DELETE"/>
-		  <input type="submit" value="Delete Pool" />
+		  <input id="hidden" type="hidden" name="_method" value="DELETE">
+		  <input type="submit" value="Delete Pool">
 	  </form>	
     <br>
     <form action="/pools" method="GET">
-		  <input type="submit" value="All Pools" />
+		  <input type="submit" value="All Pools">
 	  </form>
   </body>
 </html>

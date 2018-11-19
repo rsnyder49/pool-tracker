@@ -2,7 +2,7 @@
   <body>
     <h2><%= @user.username %>'s Pools</h2>
     <% @user.pools.each do |pool| %>
-    <ul><%= pool.address %><br></ul>
+    <ul><%= pool.address1 %> <%= pool.address2 %><br><%= pool.city %><br><%= pool.state %><br><%= pool.zip %></ul>
     <ul><form action="/pools/<%= pool.id %>/edit" method="GET">
       <input type="submit" value="Edit Pool" >
     </form>

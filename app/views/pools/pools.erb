@@ -1,6 +1,6 @@
 <html>
   <body>
-    <h1>Welcome, <%= Helper.current_user(session).username %></h1>
+    <h1>Welcome <%= Helper.current_user(session).username %>, here is a list of all pools</h1>
     <form action="/pools/new" method="GET">
 		  <input type="submit" value="New Pool">
 	  </form>
@@ -11,7 +11,7 @@
     <% @pools.all.each do |pool| %>
     <ul>
 	  <% @user = User.find_by_id(pool.user_id) %>
-	  <h4><a href="/users/<%= @user.slug %>"><%= @user.username %></a>:
+	  <h4>User<a href="/users/<%= @user.slug %>"> <%= @user.username %>'s</a> Pool:<br>
     <%= pool.address1 %> <%= pool.address2 %><br><%= pool.city %><br><%= pool.state %><br><%= pool.zip %></h4></ul>
 	  <ul><form action="/pools/<%= pool.id %>" method="GET">
 	 		<input type="submit" value="View Pool">
