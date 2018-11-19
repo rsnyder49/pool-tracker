@@ -3,7 +3,11 @@
     <h2>Edit Pool</h2>
     <form action="/pools/<%= @pool.id %>" method="POST">
       <input type="hidden" name="_method" value="PATCH">
-      <input type="text" name="content" id="content" value="<%= @pool.address %>">
+      <input type="text" name="address1" id="content" value="<%= @pool.address1 %>"><br>
+      <input type="text" name="address2" id="content" value="<%= @pool.address2 %>"><br>
+      <input type="text" name="city" id="content" value="<%= @pool.city %>"><br>
+      <input type="text" name="state" id="content" value="<%= @pool.state %>"><br>
+      <input type="text" name="zip" id="content" value="<%= @pool.zip %>"><br>
       <input type="submit" value="submit">
     </form>
     <br>
