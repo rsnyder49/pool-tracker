@@ -8,11 +8,13 @@ class PoolsController < ApplicationController
       redirect '/login' 
     end 
   end
-    get '/pools/new' do
+  
+  get '/pools/new' do
     erb :'pools/new'
   end
-  # get 'pools/new' do 
-  #   if Helper.logged_in?(session)
+  # get 'pools/new' do
+  #   @user = Helper.current_user(session)
+  #   if !!@user
   #     erb :'pools/new'
   #   else 
   #     redirect '/login'
@@ -62,6 +64,10 @@ class PoolsController < ApplicationController
         redirect to '/pools'
       end
     else
+      begin 
+      raise "a test"
+      puts "you do not have permission"
+      end
       redirect to '/login'
     end
   end

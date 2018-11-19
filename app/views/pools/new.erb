@@ -1,26 +1,26 @@
 <html>
   <body>
-    <h2>Add a New Pool</h2>
+    <h3>Add a New Pool</h3>
     <h3><%= Helper.current_user(session).username %>
     <form action="/pools" method="POST">
-      <h2>Client Info</h2>
+      <h4>Client Info</h4>
  <!-- full-name input-->
       <!--<label>Full Name</label>-->
       <!--  <input id="full-name" name="full-name" type="text" placeholder="full name" class="input-xlarge">-->
- <!-- address-line1 input-->
-      <label>Address Line 1</label>
+ <!-- address1 input-->
+      <label>Address Line 1:</label>
         <input id="address1" name="address1" type="text" placeholder="address line 1" class="input-xlarge"><br>
-  <!-- address-line2 input-->
-       <label>Address Line 2</label>
+  <!-- address2 input-->
+       <label>Address Line 2:</label>
         <input id="address2" name="address2" type="text" placeholder="address line 2" class="input-xlarge"><br>             
   <!-- city input-->
-      <label>City</label>
+      <label>City:</label>
         <input id="city" name="city" type="text" placeholder="city" class="input-xlarge"><br>
-  <!-- region input-->
-      <label>State / Province / Region</label>
-        <input id="state" name="state" type="text" placeholder="state / province / region" class="input-xlarge"><br>
+  <!-- state input-->
+      <label>State:</label>
+        <input id="state" name="state" type="text" placeholder="state" class="input-xlarge"><br>
   <!-- postal-code input-->
-      <label>Zip / Postal Code</label>
+      <label>Zip / Postal Code:</label>
         <input id="zip" name="zip" type="text" placeholder="zip or postal code" class="input-xlarge"><br>
       <input type="submit" value="submit">
       </form>
