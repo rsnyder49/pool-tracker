@@ -76,16 +76,15 @@ class PoolsController < ApplicationController
   
   patch '/pools/:id' do
     @pool = Pool.find_by_id(params[:id])
-    # if @pool.user.username != Helper.current_user(session)
-    #   redirect to '/pools'
-    # end
-    # if !(params.has_value?(""))
+    if @pool.user_id != Helper.current_user(session).id
+      redirect to '/pools'
+    end
+    if !(params.has_value?(""))
       @pool.update(address1: params[:address1], address2: params[:address2], city: params[:city], state: params[:state], zip: params[:zip])
-      # @pool.address1 = params[:address1]
       @pool.save
-    # else
+    else
       redirect to "/pools/#{@pool.id}/edit"
-    # end
+    end
     redirect to "/pools/#{@pool.id}"
   end
   
