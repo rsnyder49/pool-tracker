@@ -44,14 +44,15 @@ class PoolsController < ApplicationController
   # end
   post '/pools' do 
     @user = Helper.current_user(session)
-    @pool = Pool.create(:address => params[:address-line1])
+    @pool = Pool.create(:address1 => params[:address1], :address2 => params[:address2], :city => params[:city], :state => params[:state], :zip => params[:zip])
     @pool.user_id = @user.id 
     @pool.save 
+    redirect "/pools/#{@pool.id}"
   end 
   
   delete '/pools/:id/delete' do
     @pool = Pool.find_by_id(params[:id])
-    if @pool.user != Helper.current_user(session)
+    if @pool.username != Helper.current_user(session)
       redirect to '/pools'
     end
     if Helper.logged_in?(session)
@@ -79,7 +80,7 @@ class PoolsController < ApplicationController
       redirect to '/pools'
     end
     if !(params.has_value?(""))
-      @pool.update(content: params[:content])
+      @pool.update(address: params[:address])
       @pool.save
      else
       redirect to "/pools/#{@pool.id}/edit"
