@@ -52,11 +52,12 @@ class PoolsController < ApplicationController
   
   delete '/pools/:id/delete' do
     @pool = Pool.find_by_id(params[:id])
-    if @pool.username != Helper.current_user(session)
+    # if @pool.username != Helper.current_user(session)
+    if @pool.user_id != Helper.current_user(session).id
       redirect to '/pools'
     end
     if Helper.logged_in?(session)
-      if @pool.user_id == Helper.current_user.id
+      if @pool.user_id == Helper.current_user(session).id
         @pool.destroy
         redirect to '/pools'
       end
