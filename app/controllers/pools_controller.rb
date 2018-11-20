@@ -61,14 +61,10 @@ class PoolsController < ApplicationController
     if Helper.logged_in?(session)
       if @pool.user_id == Helper.current_user(session).id
         @pool.destroy
-        redirect to '/pools'
+        redirect '/pools'
       end
     else
-      begin 
-      raise "a test"
-      puts "you do not have permission"
-      end
-      redirect to '/login'
+      redirect '/login'
     end
   end
   

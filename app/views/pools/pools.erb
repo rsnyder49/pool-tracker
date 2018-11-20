@@ -8,7 +8,8 @@
 		  <input type="submit" value="Your Pools">
 	  </form>
     <h3>All Pools:</h3>
-    <% @pools.all.each do |pool| %>
+    <% sorted = @pools.all.sort_by {|pool| pool.user_id} %>
+    <% sorted.each do |pool| %>
     <ul>
 	  <% @user = User.find_by_id(pool.user_id) %>
 	  <h4>User<a href="/users/<%= @user.slug %>"> <%= @user.username %>'s</a> Pool:<br>

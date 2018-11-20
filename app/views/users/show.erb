@@ -4,15 +4,15 @@
     <% @user.pools.each do |pool| %>
     <ul><%= pool.address1 %> <%= pool.address2 %><br><%= pool.city %><br><%= pool.state %><br><%= pool.zip %></ul>
     <ul><form action="/pools/<%= pool.id %>/edit" method="GET">
-      <input type="submit" value="Edit Pool" >
+      <input type="submit" value="Edit Pool">
     </form>
     <form action="/pools/<%= pool.id %>/delete" method="POST">
-    	<input id="hidden" type="hidden" name="_method" value="DELETE"/>
-    	<input type="submit" value="Delete Pool" ></ul>
+    	<input id="hidden" type="hidden" name="_method" value="DELETE">
+    	<input type="submit" value="Delete Pool" ></form></ul>
     <% end %>
     <br>
     <form action="/pools" method="GET">
-    	<input type="submit" value="All Pools" />
+    	<input type="submit" value="All Pools">
     </form>
   </body>
 </html>

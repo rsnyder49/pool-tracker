@@ -8,9 +8,9 @@
     <nav>
       <% if Helper.logged_in?(session) %>
 
-        <a href="/pools/new">Create Pool </a>/
+        <a href="/pools/new">New Pool </a>/
         <a href="/logout"> Log Out</a>
-        <p>Hello, <%= Helper.current_user(session).username %></p>
+        <!--<p>Hello, <%= Helper.current_user(session).username %></p>-->
 
       <% else %>
         <a href="/signup">Sign Up </a>/

@@ -1,28 +1,28 @@
 <html>
   <body>
-    <h3>Add a New Pool</h3>
-    <h3><%= Helper.current_user(session).username %>
+    <h3>Add a New Pool for <%= Helper.current_user(session).username %></h3>
+    <!--<h3><%= Helper.current_user(session).username %>-->
     <form action="/pools" method="POST">
-      <h4>Client Info</h4>
+      <!--<h4>Client Info</h4>-->
  <!-- full-name input-->
       <!--<label>Full Name</label>-->
       <!--  <input id="full-name" name="full-name" type="text" placeholder="full name" class="input-xlarge">-->
  <!-- address1 input-->
       <label>Address Line 1:</label>
         <input id="address1" name="address1" type="text" placeholder="address line 1" class="input-xlarge"><br>
-  <!-- address2 input-->
+ <!-- address2 input-->
        <label>Address Line 2:</label>
         <input id="address2" name="address2" type="text" placeholder="address line 2" class="input-xlarge"><br>             
-  <!-- city input-->
+ <!-- city input-->
       <label>City:</label>
         <input id="city" name="city" type="text" placeholder="city" class="input-xlarge"><br>
-  <!-- state input-->
+ <!-- state input-->
       <label>State:</label>
         <input id="state" name="state" type="text" placeholder="state" class="input-xlarge"><br>
-  <!-- postal-code input-->
+ <!-- postal-code input-->
       <label>Zip / Postal Code:</label>
         <input id="zip" name="zip" type="text" placeholder="zip or postal code" class="input-xlarge"><br>
-      <input type="submit" value="submit">
+      <input type="submit" value="Submit">
       </form>
       <form action="/pools" method="GET">
   		  <input type="submit" value="All Pools">
