@@ -10,7 +10,11 @@ class PoolsController < ApplicationController
   end
   
   get '/pools/new' do
-    erb :'pools/new'
+    if Helper.logged_in?(session)
+      erb :'pools/new'
+    else
+      redirect '/login'
+    end
   end
   # get 'pools/new' do
   #   @user = Helper.current_user(session)
@@ -44,12 +48,16 @@ class PoolsController < ApplicationController
   #   end
   #   redirect "/pools/#{@pool.id}"
   # end
-  post '/pools' do 
-    @user = Helper.current_user(session)
-    @pool = Pool.create(:address1 => params[:address1], :address2 => params[:address2], :city => params[:city], :state => params[:state], :zip => params[:zip])
-    @pool.user_id = @user.id 
-    @pool.save 
-    redirect "/pools/#{@pool.id}"
+  post '/pools' do
+    if Helper.logged_in?(session)
+      @user = Helper.current_user(session)
+      @pool = Pool.create(:address1 => params[:address1], :address2 => params[:address2], :city => params[:city], :state => params[:state], :zip => params[:zip])
+      @pool.user_id = @user.id 
+      @pool.save 
+      redirect "/pools/#{@pool.id}"
+    else
+      redirect '/login'
+    end
   end 
   
   delete '/pools/:id/delete' do

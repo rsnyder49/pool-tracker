@@ -14,9 +14,4 @@ class ApplicationController < Sinatra::Base
     erb :index
   end	
   
-  # get '/pools/new' do
-  #   erb :'pools/new'
-  # end
-
-  
 end
