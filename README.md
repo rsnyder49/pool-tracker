@@ -1,2 +1,1 @@
-Liberty Pool's Pool Tracker
-This will help pool cleaners keep track of their pools
+Web application created to help pool service employees keep track of their respective pools.
