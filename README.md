@@ -1,6 +1,8 @@
+# Pool Tracking Service
 Web application created to help pool service employees keep track of their respective pools.
 
-After cloning or downloading the file:
+## Usage
+After cloning or downloading:
 
 run 'bundle install' to install dependencies
 
